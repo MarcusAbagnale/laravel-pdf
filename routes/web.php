@@ -18,7 +18,8 @@ use App\Models\pessoa;
 */
 
 Route::get('/', function () {
-    return view('principal');
+    $pessoas = DB::table('pessoas')->get();
+    return view('cadastro', ['pessoas' => $pessoas]);
 });
 
 Route::get('/pdf/{cpf}',[PdfController::class, 'index']);
