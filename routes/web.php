@@ -38,9 +38,11 @@ Route::post('cadastrar', [PessoasController::class, 'store']);
 
 Route::post('editar', [PessoasController::class, 'store']);
 
-Route::post('delete', [PessoasController::class, 'destroy/{$id}']);
-
 Route::get('/cadastro-editar/{id}', function ($id) {
     $dadosCadastrados =  pessoa::where('id',$id)->get();
     return view('layout/form-editar', ['dadosCadastrados' => $dadosCadastrados]);
 });
+
+
+Route::resource('pessoa', PessoasController::class);
+

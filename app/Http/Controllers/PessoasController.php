@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\pessoa;
+use App\Models\Pessoa;
 
 
 class PessoasController extends Controller
@@ -15,9 +15,9 @@ class PessoasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-        
+    { 
+        $pessoas = DB::table('pessoas')->get();
+        return view('cadastro', ['pessoas' => $pessoas]);
     }
 
     /**
@@ -38,18 +38,17 @@ class PessoasController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $pessoa = new pessoa();
+
+        $pessoa = new Pessoa();
         $pessoa->cpf = $request->cpf;
         $pessoa->nome = $request->nome;
         $pessoa->dtini = $request->dtini;
         $pessoa->dtfim = $request->dtfim;
 
         $pessoa->save();
-        
+
         $pessoas = DB::table('pessoas')->get();
         return view('cadastro',  ['pessoas' => $pessoas]);
-        
     }
 
     /**
@@ -60,7 +59,6 @@ class PessoasController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -92,9 +90,12 @@ class PessoasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $pessoa = new pessoa();
-        $pessoa->delete($id);
+        $pessoa = new Pessoa();
+        Pessoa::where('id', $id)->delete();
+        return redirect()->route('pessoa.index')
+            ->withSuccess(__('Post delete successfully.'));
     }
+    
 }

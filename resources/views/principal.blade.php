@@ -35,19 +35,15 @@
         </header>
 
         <div class="nav-scroller py-1 mb-2">
-            <img src="../resources/img/logo.png" alt="">
             <nav class="nav d-flex justify-content-between">
-                <li><a class="p-2 text-muted" href="#" />Home</a></li>
-                <li><a class="p-2 text-muted" href="#" />Banco de Dados</a></li>
-                <li><a class="p-2 text-muted" href="cadastro-form" />Cadastrar</a></li>
+                <li class="bg-info rounded p-2"><a class="p-2 text-primary" href="cadastro" />Home</a></li>
+                <li class="bg-info rounded p-2"><a class="p-2 text-primary" href="cadastro-form" />Cadastrar</a></li>
             </nav>
         </div>
 
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic">Cadastro de Pessoas</h1>
-                <p class="lead my-3">Aqui você encontra o tempo de serviço de cada pessoa cadastrada.<br>E pode gerar um
-                    documento PDF para comprovar esse tempo de serviço.</p>
             </div>
         </div>
 

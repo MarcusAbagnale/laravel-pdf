@@ -14,4 +14,6 @@ class pessoa extends Model
         'dtini',
         'dtfim',
     ];
+
+    
 }
